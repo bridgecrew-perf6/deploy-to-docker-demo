@@ -51,6 +51,8 @@ namespace WeatherAPI
 
             services.AddControllers();
 
+            services.AddHealthChecks();
+
             //services.AddDbContext<WeatherContext>(opt =>
             //{
             //    opt.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"));
@@ -76,6 +78,7 @@ namespace WeatherAPI
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
+                endpoints.MapHealthChecks("/health");
             });
         }
     }
